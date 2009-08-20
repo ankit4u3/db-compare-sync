@@ -1,0 +1,12 @@
+These are ideas of dependecies, items to use
+to accomplish the database connectivity that 
+we will need.
+
+jTDS - http://jtds.sourceforge.net/
+http://www.java-tips.org/other-api-tips/jdbc/how-to-connect-microsoft-sql-server-using-jdbc.html
+
+sqlitejdbc or javasqlite
+http://www.zentus.com/sqlitejdbc/ or http://www.ch-werner.de/javasqlite/
+
+JDBC Driver for MySQL
+http://www.mysql.com/products/connector/
