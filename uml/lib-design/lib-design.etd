@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE XMI SYSTEM "C:\Users\Frank\.netbeans\6.7\.uml\config\UML_2.0EMBT.dtd"> --><XMI xmlns:UML="omg.org/UML/1.4" xmi.version="2.0"> <XMI.header> <XMI.metamodel xmi.name="UML" xmi.version="1.4"/> <XMI.documentation> <XMI.exporter> Embarcadero's Describe </XMI.exporter> <XMI.exporterVersion> 6.0 </XMI.exporterVersion> </XMI.documentation> </XMI.header> <XMI.content> <UML:Project xmi.id="DCE.6BCB84C1-DDB4-FEE8-93FC-56C2338883E4" mode="Design" defaultLanguage="UML" projVersion="6.1.4.837" name="lib-design"><UML:Element.ownedElement>
+<UML:Interface xmi.id="DCE.C7BC1494-6F02-040C-4ACA-B5DF3F2DCAD4" name="WhatIsThis?" isAbstract="true" owner="DCE.6BCB84C1-DDB4-FEE8-93FC-56C2338883E4" appliedStereotype="__uri_.\lib-design.etup#//*[@xmi.id=&quot;DCE.5CD004FA-52C0-FF5A-FEDF-8B6D9EE9897C&quot;]"><UML:Element.presentation>
+</UML:Element.presentation></UML:Interface></UML:Element.ownedElement><UML:Package.packageImport>
+<UML:PackageImport xmi.id="DCE.A700BD9B-0A59-39ED-7603-6B84DF8B367F" importingPackage="DCE.6BCB84C1-DDB4-FEE8-93FC-56C2338883E4"><UML:PackageImport.importedPackage>
+<UML:Profile xmi.id="DCE.AE42EA0C-E30C-11A8-FF7D-D565AFBAAF35" name="Unnamed" isCloned="true" href=".\lib-design.etup#//*[@xmi.id=&apos;DCE.AE42EA0C-E30C-11A8-FF7D-D565AFBAAF35&apos;]" isDirty="false"/></UML:PackageImport.importedPackage><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.96ABA162-AF8C-7F5A-CE9B-479BB89A23A0" owner="DCE.A700BD9B-0A59-39ED-7603-6B84DF8B367F" name="autoCreated">
+<UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:PackageImport></UML:Package.packageImport></UML:Project></XMI.content> </XMI>
