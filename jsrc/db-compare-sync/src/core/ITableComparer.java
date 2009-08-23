@@ -11,5 +11,5 @@ package core;
  */
 public interface ITableComparer
 {
-
+    void CompareTable( Object table1, Object table2 );
 }
