@@ -11,3 +11,6 @@ syntax: glob
 
 obj
 Debug
+
+.DS_Store
+private.properties
