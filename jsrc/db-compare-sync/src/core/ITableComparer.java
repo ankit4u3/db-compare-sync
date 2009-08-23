@@ -5,6 +5,9 @@
 
 package core;
 
+import org.sqlite.*;
+import java.sql.*;
+
 /**
  *
  * @author FrankV
