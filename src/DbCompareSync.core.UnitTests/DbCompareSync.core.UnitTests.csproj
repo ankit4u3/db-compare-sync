@@ -53,8 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FibonacciTextFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServerTableCompareUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DbCompareSync.core\DbCompareSync.core.csproj">
