@@ -9,14 +9,18 @@ using MbUnit.Framework.ContractVerifiers;
 namespace DbCompareSync.core.UnitTests
 {
   [TestFixture]
-  public class FibonacciTextFixture
+  public class SQLServerTableCompareUnitTests
   {
     [Test]
-    public void FibonacciOfNumberGreaterThanOne()
+    public void TablesMatch()
     {
-      int result = Fibonacci.Calculate(6);
-      Assert.AreEqual(result, 8);
+      //
+      // Write our test. (First step of TDD)
+    }
 
+    [Test]
+    public void TablesDoNotMatch()
+    {
     }
   }
 }
