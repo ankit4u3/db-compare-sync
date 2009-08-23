@@ -1,0 +1,13 @@
+syntax: glob
+
+*.exe
+*.dll
+*.pdb
+*.*~
+*.suo
+
+*.tmp
+*.tmp*
+
+obj
+Debug
