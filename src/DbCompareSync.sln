@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbCompareSync.core", "DbCompareSync.core\DbCompareSync.core.csproj", "{7861CA0C-DF9E-499C-B878-64C61FAD6BD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbCompareSync.core.UnitTests", "DbCompareSync.core.UnitTests\DbCompareSync.core.UnitTests.csproj", "{46F945EF-A002-42DB-96B9-5982D0C61D1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{7861CA0C-DF9E-499C-B878-64C61FAD6BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7861CA0C-DF9E-499C-B878-64C61FAD6BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7861CA0C-DF9E-499C-B878-64C61FAD6BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F945EF-A002-42DB-96B9-5982D0C61D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F945EF-A002-42DB-96B9-5982D0C61D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F945EF-A002-42DB-96B9-5982D0C61D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F945EF-A002-42DB-96B9-5982D0C61D1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
