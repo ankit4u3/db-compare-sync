@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package SQLite;
+package SQLiteUnitTests;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,6 +11,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import org.sqlite.*;
+import SQLite.*;
 
 /**
  *
@@ -30,11 +33,19 @@ public class SQLiteDBCompareTests {
     }
 
     @Before
-    public void setUp() {
+    public void setUp()
+    {
+        //
+        // Create a basic database;
+        // add rows to it.
+        // Let test run.
+
     }
 
     @After
-    public void tearDown() {
+    public void tearDown()
+    {
+        // Basicily, delete database (file and everything)
     }
 
     // TODO add test methods here.
