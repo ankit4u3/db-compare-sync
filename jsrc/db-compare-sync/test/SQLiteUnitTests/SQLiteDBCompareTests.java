@@ -1,9 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package SQLiteUnitTests;
+
+
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -57,6 +54,7 @@ public class SQLiteDBCompareTests {
     public void TestDBCompare()
     {
         //Not sure what to test yet; need design.
+        assertEquals(true, false); //Not implemented and so we want this test to fail.
     }
 
 }
