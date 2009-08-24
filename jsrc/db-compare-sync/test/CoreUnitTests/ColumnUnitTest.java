@@ -45,7 +45,7 @@ public class ColumnUnitTest
     @Test
     public void NewColumn()
     {
-        core.IColumn _col = new core.Column();
+        IColumn _col = new Column();
 
         //We expect it to be empty if it is new.
         assertEquals("", _col.getColumnName());
@@ -55,7 +55,7 @@ public class ColumnUnitTest
     @Test
     public void ColumnRetainColumnName() throws Exception
     {
-        core.IColumn _col = new core.Column();
+        IColumn _col = new Column();
 
         assertEquals("", _col.getColumnName());
 
@@ -67,14 +67,14 @@ public class ColumnUnitTest
     @Test(expected=Exception.class)
     public void ColumnNameDoesNotAcceptNull() throws Exception
     {
-        core.IColumn _col = new core.Column();
+        IColumn _col = new Column();
         
         _col.setColumnName(null); //should throw exception.
     }
 
     public void RetainDataType() throws Exception
     {
-        core.IColumn _col = new core.Column();
+        IColumn _col = new Column();
 
         _col.setDataType("this is a test");
 
@@ -84,7 +84,7 @@ public class ColumnUnitTest
     @Test(expected=Exception.class)
     public void DataTypeDoesNotAcceptNull() throws Exception
     {
-        core.IColumn _col = new core.Column();
+        IColumn _col = new Column();
 
         _col.setDataType(null);
     }

@@ -15,10 +15,10 @@ import core.*;
  *
  * @author FrankV
  */
-public class CompareableTableUnitTests
+public class CompareableTableUnitTest
 {
 
-    public CompareableTableUnitTests()
+    public CompareableTableUnitTest()
     {
     }
 

@@ -16,9 +16,9 @@ import SQLite.*;
  *
  * @author FrankV
  */
-public class SQLiteDBCompareTests {
+public class SQLiteDBCompareTest {
 
-    public SQLiteDBCompareTests() {
+    public SQLiteDBCompareTest() {
     }
 
     @BeforeClass
