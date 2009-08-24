@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package Core;
+package CoreUnitTests;
 
 import org.junit.After;
 import org.junit.AfterClass;
