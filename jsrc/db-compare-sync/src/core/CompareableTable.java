@@ -3,21 +3,22 @@
  * and open the template in the editor.
  */
 
-
-
-package SQLite;
-
-import core.*;
+package core;
 
 /**
  *
  * @author FrankV
  */
-public class TableComparer implements ITableComparer
+public class CompareableTable implements ICompareableTable
 {
-
-    public void CompareTable(Object table1, Object table2) {
+    
+    /**
+     * 
+     * @author Frank Villasenor
+     **/
+    public boolean compare(ICompareableTable CompareTo)
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
 }

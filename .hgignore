@@ -14,3 +14,9 @@ Debug
 
 .DS_Store
 private.properties
+*private.properties
+
+dist
+build
+
+*.class
