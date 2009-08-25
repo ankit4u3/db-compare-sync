@@ -19,4 +19,8 @@ public interface ICompareableTable
     //"properties" for field list.
     ArrayList<IColumn> getFieldList();
     void setFieldList(ArrayList<IColumn> psValue);
+
+    String getTableName();
+    void setTableName( String psTableName );
+
 }

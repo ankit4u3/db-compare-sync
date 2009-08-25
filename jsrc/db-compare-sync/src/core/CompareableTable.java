@@ -16,7 +16,17 @@ public class CompareableTable implements ICompareableTable
 
     //
     // Holds the list of fields.
-    ArrayList<Column> FieldList;
+    protected ArrayList<IColumn> FieldList;
+    protected String TableName;
+
+    
+    public CompareableTable()
+    {
+        this.FieldList = new ArrayList<IColumn>();
+        this.FieldList.clear();
+    }
+
+
 
     /**
      * 
@@ -24,15 +34,31 @@ public class CompareableTable implements ICompareableTable
      **/
     public boolean compare(ICompareableTable CompareTo)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //
+        // The definitions of what makes something equal is unclear at this time.
+        // For "now" if the field list is equal, the "table" is the same.
+        boolean _result = this.FieldList.containsAll(CompareTo.getFieldList());
+
+        return _result;
     }
 
-    public ArrayList<IColumn> getFieldList() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ArrayList<IColumn> getFieldList()
+    {
+        return this.FieldList;
     }
 
-    public void setFieldList(ArrayList<IColumn> psValue) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void setFieldList(ArrayList<IColumn> psValue)
+    {
+        this.FieldList = psValue;
+    }
+
+    public String getTableName()
+    {
+        return this.TableName;
+    }
+    public void setTableName( String psTableName )
+    {
+        this.TableName = psTableName;
     }
 
 }

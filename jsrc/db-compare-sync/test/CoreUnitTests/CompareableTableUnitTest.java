@@ -51,7 +51,10 @@ public class CompareableTableUnitTest
         ICompareableTable _cTable = new CompareableTable();
         ICompareableTable _cTable2 = new CompareableTable();
 
-        assertEquals(true, _cTable.compare(_cTable2));
+        boolean _result = _cTable.compare(_cTable2);
+
+
+        assertEquals(true, _result);
     }
 
     @Test

@@ -9,6 +9,7 @@ package core;
  *
  * @author FrankV
  */
-public interface IPopulateView {
+public interface IPopulateView
+{
 
 }
