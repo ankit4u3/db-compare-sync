@@ -24,7 +24,9 @@ public class CompareableTable implements ICompareableTable
     {
         this.FieldList = new ArrayList<IColumn>();
         this.FieldList.clear();
-    }
+
+        this.TableName = "";
+    } 
 
 
 
@@ -37,7 +39,9 @@ public class CompareableTable implements ICompareableTable
         //
         // The definitions of what makes something equal is unclear at this time.
         // For "now" if the field list is equal, the "table" is the same.
-        boolean _result = this.FieldList.containsAll(CompareTo.getFieldList());
+        
+        boolean _result = this.getTableName().equals(CompareTo.getTableName());
+        _result = _result && (this.FieldList.containsAll(CompareTo.getFieldList()));
 
         return _result;
     }
