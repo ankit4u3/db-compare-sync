@@ -82,8 +82,18 @@ public class CompareableTableUnitTest
         _compTable.setFieldList( _cols ); //Clone gives a shallow copy.
 
         assertEquals( _cols, _compTable.getFieldList() );
+    }
 
-        
+    @Test
+    public void CheckBasicActionsOn_TableName()
+    {
+        ICompareableTable _Table = new CompareableTable();
+
+        String _testVal = "MyTestTable";
+
+        _Table.setTableName( _testVal );
+
+        assertEquals(_testVal, _Table.getTableName());
     }
 
 }
