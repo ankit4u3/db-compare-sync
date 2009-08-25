@@ -53,7 +53,6 @@ public class CompareableTableUnitTest
 
         boolean _result = _cTable.compare(_cTable2);
 
-
         assertEquals(true, _result);
     }
 
@@ -67,12 +66,12 @@ public class CompareableTableUnitTest
         ArrayList<IColumn> _cols = new ArrayList<IColumn>();
 
         IColumn _col = null;
-        for( int i = 0; i > 10; i++)
+        for( int i = 0; i < 10; i++)
         {
             _col = new Column();
 
-            _col.setColumnName(String.format("Column%c", i));
-            _col.setDataType(String.format("DataType%c", i));
+            _col.setColumnName(String.format("Column%d", i));
+            _col.setDataType(String.format("DataType%d", i));
 
             _cols.add(_col);
             _col = null;
