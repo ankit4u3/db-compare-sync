@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * Interface to implement for a compareable table.
  * @author FrankV
  */
-public interface ICompareableTable
+public interface IComparableTable
 {
-    boolean compare( ICompareableTable CompareTo );
+    boolean compare( IComparableTable CompareTo );
 
     //
     //"properties" for field list.

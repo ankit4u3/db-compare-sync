@@ -79,7 +79,6 @@ public class SQLiteDBCompareTest
     private void createTestSQLiteDatabase() throws ClassNotFoundException, SQLException
     {
         Class.forName("org.sqlite.JDBC");
-        //_conn = DriverManager.getConnection("jdbc:sqlite:test.db");
 
         StringBuilder _sb = new StringBuilder();
         _sb.append("jdbc:sqlite:");

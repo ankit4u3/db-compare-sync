@@ -48,8 +48,8 @@ public class CompareableTableUnitTest
     {
         //
         // Two unmodified objects should be equal.
-        ICompareableTable _cTable = new CompareableTable();
-        ICompareableTable _cTable2 = new CompareableTable();
+        IComparableTable _cTable = new ComparableTable();
+        IComparableTable _cTable2 = new ComparableTable();
 
         boolean _result = _cTable.compare(_cTable2);
 
@@ -59,7 +59,7 @@ public class CompareableTableUnitTest
     @Test
     public void compareableTable_SetFieldList() throws Exception
     {
-        ICompareableTable _compTable = new CompareableTable();
+        IComparableTable _compTable = new ComparableTable();
 
         //
         // Build ArrayList.
@@ -87,7 +87,7 @@ public class CompareableTableUnitTest
     @Test
     public void CheckBasicActionsOn_TableName()
     {
-        ICompareableTable _Table = new CompareableTable();
+        IComparableTable _Table = new ComparableTable();
 
         String _testVal = "MyTestTable";
 
