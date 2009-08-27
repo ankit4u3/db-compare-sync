@@ -71,7 +71,7 @@ public class SQLiteColumn implements IColumn
 
     public void setOrdinal(int psValue) throws Exception
     {
-        if( psValue <= 0 )
+        if( psValue < 0 )
             throw new Exception( "The Ordinal value can not be negative!" );
         else
             this.Ordinal = psValue;
