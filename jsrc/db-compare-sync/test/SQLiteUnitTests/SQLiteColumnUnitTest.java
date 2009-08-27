@@ -121,4 +121,18 @@ public class SQLiteColumnUnitTest {
         assertEquals(2, _col.getOrdinal());
     }
 
+    @Test
+    public void test_Ordinal_AcceptableRanges() throws Exception
+    {
+        IColumn _col = new SQLiteColumn();
+
+        for( int i = 0; i < 3000; i++ )
+        {
+            //at least zero to 3000 should work though
+            // most are probably limited.
+            _col.setOrdinal(i);  
+            assertEquals(i, _col.getOrdinal());
+        }
+    }
+
 }
