@@ -5,7 +5,6 @@
 
 package core;
 
-import core.Comparables.ICompareableTable;
 import java.util.*;
 
 /**
