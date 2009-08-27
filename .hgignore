@@ -1,0 +1,23 @@
+syntax: glob
+
+*.exe
+*.dll
+*.pdb
+*.*~
+*.suo
+
+*.tmp
+*.tmp*
+
+obj
+Debug
+
+.DS_Store
+private.properties
+*private.properties
+
+dist
+build
+.QueryCache
+
+*.class
