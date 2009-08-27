@@ -1,8 +1,8 @@
 
 
-package SQLite;
+package SQLite.comparers;
 
-import core.*;
+import core.comparers.IStoredProcedureComparer;
 
 /**
  *

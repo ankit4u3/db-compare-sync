@@ -1,8 +1,8 @@
 
 
-package SQLite;
+package SQLite.comparables;
 
-import core.*;
+import core.Comparables.IComparableFunction;
 
 /**
  *

@@ -1,5 +1,5 @@
 
-package SQLite;
+package SQLite.comparables;
 
 import core.*;
 
