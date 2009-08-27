@@ -18,7 +18,7 @@ public class SQLiteColumn implements IColumn
     protected int Ordinal;
 
     //
-    // TODO: Setup a unit test to test for each valid tiem... May not be exhstive quite yet.
+    // May not be exhstive quite yet but I do think it is.
     private String[] ValidDataTypes = {"INTEGER", "REAL", "DOUBLE","FLOAT", "NUMERIC",
         "TEXT","CHAR","VARCHAR", "BLOB", "DATETIME"};
     
