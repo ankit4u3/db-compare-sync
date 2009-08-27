@@ -15,6 +15,7 @@ Debug
 .DS_Store
 private.properties
 *private.properties
+*/private/*
 
 dist
 build
