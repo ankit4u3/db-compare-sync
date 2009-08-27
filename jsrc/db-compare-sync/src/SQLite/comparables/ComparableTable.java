@@ -1,7 +1,6 @@
 
 package SQLite.comparables;
 
-import core.*;
 
 /**
  *
