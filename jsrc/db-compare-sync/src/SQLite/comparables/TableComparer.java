@@ -5,8 +5,9 @@
 
 
 
-package SQLite;
+package SQLite.comparables;
 
+import core.comparers.ITableComparer;
 import core.*;
 
 /**

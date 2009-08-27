@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package core;
+package core.populators;
 
 /**
  *
  * @author FrankV
  */
-public interface IFunctionComparer {
+public interface IPopulateFunction {
 
 }

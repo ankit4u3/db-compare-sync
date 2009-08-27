@@ -3,12 +3,13 @@
  * and open the template in the editor.
  */
 
-package core;
+package core.populators;
 
 /**
  *
  * @author FrankV
  */
-public interface IViewComparer {
+public interface IPopulateView
+{
 
 }

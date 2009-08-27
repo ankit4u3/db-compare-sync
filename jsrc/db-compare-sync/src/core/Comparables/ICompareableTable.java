@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 
-package core;
+package core.Comparables;
 
+import core.*;
 import java.util.ArrayList;
 
 /**

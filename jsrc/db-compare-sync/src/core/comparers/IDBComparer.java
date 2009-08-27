@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package core;
+package core.comparers;
 
 /**
  *
  * @author FrankV
  */
-public interface IComparableDB {
+public interface IDBComparer {
 
 }
