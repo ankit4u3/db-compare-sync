@@ -23,4 +23,9 @@ public class ComparableView implements IComparableView
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    public String getSql()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
