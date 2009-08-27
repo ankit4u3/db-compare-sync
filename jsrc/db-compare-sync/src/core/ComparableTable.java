@@ -12,7 +12,7 @@ import java.util.*;
  *
  * @author FrankV
  */
-public class CompareableTable implements ICompareableTable
+public class ComparableTable implements IComparableTable
 {
 
     //
@@ -21,7 +21,7 @@ public class CompareableTable implements ICompareableTable
     protected String TableName;
 
     
-    public CompareableTable()
+    public ComparableTable()
     {
         this.FieldList = new ArrayList<IColumn>();
         this.FieldList.clear();
@@ -35,7 +35,7 @@ public class CompareableTable implements ICompareableTable
      * 
      * @author Frank Villasenor
      **/
-    public boolean compare(ICompareableTable CompareTo)
+    public boolean compare(IComparableTable CompareTo)
     {
         //
         // The definitions of what makes something equal is unclear at this time.
