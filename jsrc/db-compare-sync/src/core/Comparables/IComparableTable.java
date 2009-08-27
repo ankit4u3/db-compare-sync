@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Interface to implement for a compareable table.
  * @author FrankV
  */
-public interface ICompareableTable extends IComparableObject
+public interface IComparableTable extends IComparableObject
 {
     //
     //"properties" for field list.
