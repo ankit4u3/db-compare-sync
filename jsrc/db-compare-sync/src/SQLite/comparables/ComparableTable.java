@@ -1,16 +1,18 @@
 
 package SQLite.comparables;
 
+import core.Comparables.IComparableObject;
 import core.IColumn;
-import core.IComparableTable;
+import core.Comparables.IComparableTable;
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 /**
  *
  * @author Frank
  */
-public class ComparableTable implements core.IComparableTable
+public class ComparableTable implements core.Comparables.IComparableTable
 {
 
     public boolean compare(IComparableTable CompareTo)
@@ -34,6 +36,21 @@ public class ComparableTable implements core.IComparableTable
     }
 
     public void setTableName(String psTableName)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public boolean compare(IComparableObject CompareTo)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public UUID getObjectHash()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public String getSql()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }

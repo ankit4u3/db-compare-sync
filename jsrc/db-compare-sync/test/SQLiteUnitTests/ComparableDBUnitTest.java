@@ -15,6 +15,11 @@ import static org.junit.Assert.*;
 
 import java.sql.*;
 
+import SQLite.comparables.*;
+import core.Comparables.IComparableDB;
+import core.Comparables.IComparableTable;
+import java.util.ArrayList;
+
 /**
  * Tests the "ComparableDB" object for SQLite.
  * @author Frank Villasenor
@@ -58,8 +63,19 @@ public class ComparableDBUnitTest
 
     
     @Test
-    public void test()
+    public void test_basic_getTables()
     {
+        IComparableDB _db = new ComparableDB();
+
+        //it needs to know which database.
+        _db.setConnection(_conn);
+
+        ArrayList<IComparableTable> tableList = _db.getTables();
+
+        //we expect 1 at this time.
+        assertEquals(1, tableList.size());
     }
+
+    
 
 }
