@@ -122,6 +122,11 @@ public class SQLiteDBCompareTest
 
     }
 
+    /**
+     * gets the path that the class is running from
+     * this is used to store the temp database.
+     * @return
+     */
     private String getTestClassPath()
     {
         return SQLiteDBCompareTest.class.getProtectionDomain().getCodeSource().getLocation().getPath();
