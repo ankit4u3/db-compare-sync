@@ -8,7 +8,9 @@ package core.Comparables;
 import java.util.UUID;
 
 /**
- *
+ * Represents any object that can be compared within
+ * this library. Used as a base for the other comparable
+ * objects.
  * @author FrankV
  */
 public interface IComparableObject

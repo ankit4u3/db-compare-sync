@@ -7,4 +7,5 @@ package core.Comparables;
  */
 public interface IComparableView extends IComparableObject
 {
+    
 }
