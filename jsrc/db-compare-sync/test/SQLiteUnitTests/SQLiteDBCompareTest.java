@@ -9,8 +9,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import org.sqlite.*;
-import SQLite.*;
+
+import SQLite.comparables.*;
+import SQLite.comparers.*;
+
 import java.sql.*;
 import java.math.*;
 import java.util.*;
