@@ -60,20 +60,35 @@ public class ComparableDB implements IComparableDB
 
                 //gotta get a list of colums by: 
                 ResultSet _columns = getData( "pragma table_info(?);", new String[] {_tableName} );
-
+                ArrayList<IColumn> _columnList = new ArrayList<IColumn>();
+                
                 while( _columns.next() )
                 {
                     IColumn _col = new SQLiteColumn();
-                    
+
+                    _col.setColumnName(_columns.getString("name"));
+                    _col.setDataType(_columns.getString("type"));
+                    _col.setOrdinal(_columns.getInt("cid"));
+
+                    _columnList.add(_col);
                 }
+                
+                _table.setFieldList(_columnList);
+                _list.add(_table);
+                _table = null;
             }
 
-        } catch (SQLException ex)
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ComparableDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (Exception ex)
         {
             Logger.getLogger(ComparableDB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _list;
     }
 
     public ArrayList<IComparableFunction> getFunctions()
