@@ -27,4 +27,12 @@ public interface IComparableObject
      * used within compare.
      */
     UUID getObjectHash();
+
+    /**
+     * Generates a SQL string which will represent the object. Expect
+     * this to be used for diffs (and maybe comparisions).
+     * @return returns the SQL string to represent the object.
+     */
+    String getSql();
+
 }
