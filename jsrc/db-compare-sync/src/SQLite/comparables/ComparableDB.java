@@ -1,14 +1,17 @@
 
 package SQLite.comparables;
 
-import core.Comparables.IComparableDB;
-import core.Comparables.IComparableFunction;
-import core.Comparables.IComparableObject;
-import core.Comparables.IComparableStoredProcedure;
-import core.Comparables.IComparableView;
-import core.IComparableTable;
-import java.util.ArrayList;
-import java.util.UUID;
+import SQLite.SQLiteColumn;
+import core.Comparables.*;
+//import core.IComparableTable;
+
+
+import core.IColumn;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -16,6 +19,12 @@ import java.util.UUID;
  */
 public class ComparableDB implements IComparableDB
 {
+    protected Connection _DBConnection;
+
+    public ComparableDB()
+    {
+        this._DBConnection = null; //default to null.
+    }
 
     public boolean compare(IComparableObject CompareTo)
     {
@@ -27,8 +36,43 @@ public class ComparableDB implements IComparableDB
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    /**
+     * get the list of tables from the
+     * given database.
+     * @return
+     */
     public ArrayList<IComparableTable> getTables()
     {
+
+
+        //
+        // Query for a list of tables, populate a new ArrayList.
+        ArrayList<IComparableTable> _list = new ArrayList<IComparableTable>();
+        try
+        {
+            ResultSet _tables = getData("SELECT * FROM sqlite_master WHERE type='table' and name not like 'sqlite%';");
+
+            while( _tables.next() )
+            {
+                IComparableTable _table = new ComparableTable();
+                String _tableName = _tables.getString("name");
+                _table.setTableName( _tableName );
+
+                //gotta get a list of colums by: 
+                ResultSet _columns = getData( "pragma table_info(?);", new String[] {_tableName} );
+
+                while( _columns.next() )
+                {
+                    IColumn _col = new SQLiteColumn();
+                    
+                }
+            }
+
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(ComparableDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -52,4 +96,52 @@ public class ComparableDB implements IComparableDB
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    public void setConnection(Connection pValue)
+    {
+        this._DBConnection = pValue;
+    }
+
+    public Connection getConnection()
+    {
+        return this._DBConnection;
+    }
+
+
+    private boolean haveValidConnection()
+    {
+        if( this._DBConnection == null )
+            return false;
+
+        return true;
+    }
+
+    private ResultSet getData( String Sql ) throws SQLException
+    {
+        if( !haveValidConnection() )
+        {
+            throw new SQLException( "No Connection!" );
+        }
+
+        Statement _stmt = this._DBConnection.createStatement();
+        return _stmt.executeQuery( Sql );   
+    }
+
+    private ResultSet getData( String pPreparedStatement, String[] param ) throws SQLException
+    {
+        if( !haveValidConnection() )
+        {
+            throw new SQLException( "No Connection!" );
+        }
+
+        
+        PreparedStatement _pstmt = this._DBConnection.prepareStatement(pPreparedStatement);
+
+        for( int i = 0; i < param.length; i++ )
+        {
+            _pstmt.setString(i, param[i] );
+        }
+        _pstmt.addBatch();
+
+        return _pstmt.executeQuery();
+    }
 }
