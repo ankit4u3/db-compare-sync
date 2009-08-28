@@ -4,8 +4,7 @@ package SQLite.comparables;
 import core.Comparables.IComparableObject;
 import core.IColumn;
 import core.Comparables.IComparableTable;
-import java.util.ArrayList;
-import java.util.UUID;
+import java.util.*;
 
 
 /**
@@ -14,30 +13,30 @@ import java.util.UUID;
  */
 public class ComparableTable implements core.Comparables.IComparableTable
 {
+    protected ArrayList<IColumn> _fieldList;
+    protected String _tableName;
+    protected String _sql;
 
-    public boolean compare(IComparableTable CompareTo)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+
 
     public ArrayList<IColumn> getFieldList()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _fieldList;
     }
 
     public void setFieldList(ArrayList<IColumn> psValue)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        _fieldList = psValue;
     }
 
     public String getTableName()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _tableName;
     }
 
     public void setTableName(String psTableName)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        _tableName = psTableName;
     }
 
     public boolean compare(IComparableObject CompareTo)
@@ -52,7 +51,7 @@ public class ComparableTable implements core.Comparables.IComparableTable
 
     public String getSql()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _sql;
     }
 
 }

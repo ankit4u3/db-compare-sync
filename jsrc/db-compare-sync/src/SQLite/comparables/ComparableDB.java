@@ -58,8 +58,14 @@ public class ComparableDB implements IComparableDB
                 String _tableName = _tables.getString("name");
                 _table.setTableName( _tableName );
 
-                //gotta get a list of colums by: 
-                ResultSet _columns = getData( "pragma table_info(?);", new String[] {_tableName} );
+                //
+                //gotta get a list of colums by:
+                // This first one will error out for unknown reasons. I have a question at:
+                // http://stackoverflow.com/questions/1344599/sqlitejdbc-and-preparedstatement-to-use-pragma-tableinfo
+                //
+                //ResultSet _columns = getData( "pragma table_info( basicTestData );", new String[] {_tableName} );
+                ResultSet _columns = getData( "pragma table_info( ".concat(_tableName).concat(" );" ));
+                
                 ArrayList<IColumn> _columnList = new ArrayList<IColumn>();
                 
                 while( _columns.next() )
@@ -81,10 +87,12 @@ public class ComparableDB implements IComparableDB
         }
         catch (SQLException ex)
         {
+            System.out.println( ex.toString() );
             Logger.getLogger(ComparableDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch (Exception ex)
         {
+            System.out.println( ex.toString() );
             Logger.getLogger(ComparableDB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -149,13 +157,13 @@ public class ComparableDB implements IComparableDB
         }
 
         
-        PreparedStatement _pstmt = this._DBConnection.prepareStatement(pPreparedStatement);
+        PreparedStatement _pstmt = this._DBConnection.prepareStatement(pPreparedStatement, param);
 
-        for( int i = 0; i < param.length; i++ )
-        {
-            _pstmt.setString(i, param[i] );
-        }
-        _pstmt.addBatch();
+        //for( int i = 0; i < param.length; i++ )
+        //{
+        //    _pstmt.setString(i, param[i] );
+        //}
+        //_pstmt.addBatch();
 
         return _pstmt.executeQuery();
     }
