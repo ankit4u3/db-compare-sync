@@ -7,7 +7,7 @@
 // Distributed under the terms of the GNU General Public License.
 // A copy of the license should be with these files. If not, you
 // can retrieve a copy from http://www.gnu.org/licenses/gpl.txt
-// 
+//
 
 package SQLiteUnitTests;
 
