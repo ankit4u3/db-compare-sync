@@ -1,14 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package core.populators;
 
-/**
- *
- * @author FrankV
- */
-public interface IPopulateTable {
+import core.Comparables.IComparableTable;
 
+/**
+ * To be used to populate a IComparableTable's fields
+ * @author Frank V
+ */
+public interface IPopulateTable
+{
+    IComparableTable populate(IComparableTable pTable);
 }

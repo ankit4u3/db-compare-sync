@@ -101,12 +101,12 @@ public class ComparableDB implements IComparableDB
 
     public ArrayList<IComparableFunction> getFunctions()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("SQLite does not Support.");
     }
 
     public ArrayList<IComparableStoredProcedure> getStoredProcedures()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("SQLite does not Support.");
     }
 
     public ArrayList<IComparableView> getViews()
