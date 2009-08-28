@@ -1,14 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package core.populators;
 
+import core.Comparables.IComparableStoredProcedure;
 /**
  *
  * @author FrankV
  */
-public interface IPopulateStoredProcedure {
-
+public interface IPopulateStoredProcedure
+{
+    IComparableStoredProcedure populate(IComparableStoredProcedure pTable);
 }

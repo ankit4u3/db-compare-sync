@@ -1,14 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package core.populators;
 
+import core.Comparables.IComparableFunction;
 /**
  *
  * @author FrankV
  */
-public interface IPopulateFunction {
-
+public interface IPopulateFunction
+{
+    IComparableFunction populate(IComparableFunction pTable);
 }
