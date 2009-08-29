@@ -1,3 +1,13 @@
+//
+// This code file is apart of project "db-compare-sync"
+// (http://code.google.com/p/db-compare-sync/)
+//
+// Copyright (c) 2009 Frank Villasenor
+//
+// Distributed under the terms of the GNU General Public License.
+// A copy of the license should be with these files. If not, you
+// can retrieve a copy from http://www.gnu.org/licenses/gpl.txt
+//
 
 package SQLite.comparables;
 
@@ -9,6 +19,7 @@ import core.Comparables.*;
 import core.IColumn;
 import java.sql.*;
 import java.util.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -43,8 +54,6 @@ public class ComparableDB implements IComparableDB
      */
     public ArrayList<IComparableTable> getTables()
     {
-
-
         //
         // Query for a list of tables, populate a new ArrayList.
         ArrayList<IComparableTable> _list = new ArrayList<IComparableTable>();
@@ -54,17 +63,23 @@ public class ComparableDB implements IComparableDB
 
             while( _tables.next() )
             {
-                IComparableTable _table = new ComparableTable();
+                IComparableTable _table = this.getNewTable();
                 String _tableName = _tables.getString("name");
                 _table.setTableName( _tableName );
 
-                //gotta get a list of colums by: 
-                ResultSet _columns = getData( "pragma table_info(?);", new String[] {_tableName} );
+                //
+                //gotta get a list of colums by:
+                // This first one will error out for unknown reasons. I have a question at:
+                // http://stackoverflow.com/questions/1344599/sqlitejdbc-and-preparedstatement-to-use-pragma-tableinfo
+                //
+                //ResultSet _columns = getData( "pragma table_info( basicTestData );", new String[] {_tableName} );
+                ResultSet _columns = getData( "pragma table_info( ".concat(_tableName).concat(" );" ));
+                
                 ArrayList<IColumn> _columnList = new ArrayList<IColumn>();
                 
                 while( _columns.next() )
                 {
-                    IColumn _col = new SQLiteColumn();
+                    IColumn _col = _table.getNewColumn();
 
                     _col.setColumnName(_columns.getString("name"));
                     _col.setDataType(_columns.getString("type"));
@@ -81,29 +96,32 @@ public class ComparableDB implements IComparableDB
         }
         catch (SQLException ex)
         {
+            System.out.println( ex.toString() );
             Logger.getLogger(ComparableDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch (Exception ex)
         {
+            System.out.println( ex.toString() );
             Logger.getLogger(ComparableDB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return _list;
     }
 
+    public ArrayList<IComparableView> getViews()
+    {
+        ArrayList<IComparableView> _viewList = new ArrayList<IComparableView>();
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     public ArrayList<IComparableFunction> getFunctions()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("SQLite does not Support.");
     }
 
     public ArrayList<IComparableStoredProcedure> getStoredProcedures()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public ArrayList<IComparableView> getViews()
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("SQLite does not Support.");
     }
 
     public String getSql()
@@ -149,14 +167,35 @@ public class ComparableDB implements IComparableDB
         }
 
         
-        PreparedStatement _pstmt = this._DBConnection.prepareStatement(pPreparedStatement);
+        PreparedStatement _pstmt = this._DBConnection.prepareStatement(pPreparedStatement, param);
 
-        for( int i = 0; i < param.length; i++ )
-        {
-            _pstmt.setString(i, param[i] );
-        }
-        _pstmt.addBatch();
+        //for( int i = 0; i < param.length; i++ )
+        //{
+        //    _pstmt.setString(i, param[i] );
+        //}
+        //_pstmt.addBatch();
 
         return _pstmt.executeQuery();
+    }
+
+
+    public IComparableTable getNewTable()
+    {
+        return new SQLite.comparables.ComparableTable();
+    }
+
+    public IComparableView getNewView()
+    {
+        return new SQLite.comparables.ComparableView();
+    }
+
+    public IComparableFunction getNewFunction()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public IComparableStoredProcedure getNewStoredProcedure()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -7,13 +7,23 @@
 // Distributed under the terms of the GNU General Public License.
 // A copy of the license should be with these files. If not, you
 // can retrieve a copy from http://www.gnu.org/licenses/gpl.txt
-// 
-package core.comparers;
+//
+
+package SQLite.populators;
+
+import core.Comparables.IComparableView;
+import core.populators.*;
 
 /**
  *
  * @author FrankV
  */
-public interface IDBComparer {
+public class PopulateView implements IPopulateView
+{
+
+    public IComparableView populate(IComparableView pView)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }
