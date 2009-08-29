@@ -64,4 +64,9 @@ public class ComparableTable implements core.Comparables.IComparableTable
         return _sql;
     }
 
+    public IColumn getNewColumn()
+    {
+        return new SQLite.SQLiteColumn();
+    }
+
 }
