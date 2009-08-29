@@ -11,7 +11,6 @@
 
 package SQLiteUnitTests;
 
-import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,11 +19,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.sql.*;
+import java.util.*;
 
 import SQLite.comparables.*;
-import core.Comparables.IComparableDB;
-import core.Comparables.IComparableTable;
-import java.util.ArrayList;
+import core.Comparables.*;
+
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Tests the "ComparableDB" object for SQLite.
@@ -34,6 +34,7 @@ public class ComparableDBUnitTest
 {
     private Connection _conn;
     private SQLiteUnitTestUtility _testUtility;
+    private IComparableDB _db;
 
     public ComparableDBUnitTest()
     {
@@ -58,6 +59,9 @@ public class ComparableDBUnitTest
         _testUtility.populateTestDBWithData( _conn );
 
         _testUtility.verifyPopulatedTestData( _conn );
+
+        _db = new ComparableDB();
+        _db.setConnection(_conn);
     }
 
     @After
@@ -65,23 +69,23 @@ public class ComparableDBUnitTest
     {
         _testUtility.DeleteDatabase( _conn );
         _conn = null;
+        _db = null;
     }
 
     
     @Test
     public void test_basic_getTables()
     {
-        IComparableDB _db = new ComparableDB();
-
-        //it needs to know which database.
-        _db.setConnection(_conn);
-
         ArrayList<IComparableTable> tableList = _db.getTables();
 
         //we expect 1 at this time.
         assertEquals(1, tableList.size());
     }
 
-    
+    @Test(expected=UnsupportedOperationException.class)
+    public void test_basic_getFunctions()
+    {
+        ArrayList<IComparableFunction> funcList = _db.getFunctions();
+    }
     
 }
