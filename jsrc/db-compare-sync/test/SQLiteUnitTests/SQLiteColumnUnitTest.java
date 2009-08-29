@@ -1,7 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+//
+// This code file is apart of project "db-compare-sync"
+// (http://code.google.com/p/db-compare-sync/)
+//
+// Copyright (c) 2009 Frank Villasenor
+//
+// Distributed under the terms of the GNU General Public License.
+// A copy of the license should be with these files. If not, you
+// can retrieve a copy from http://www.gnu.org/licenses/gpl.txt
+// 
 
 package SQLiteUnitTests;
 
@@ -119,6 +125,20 @@ public class SQLiteColumnUnitTest {
         _col.setOrdinal(2);
 
         assertEquals(2, _col.getOrdinal());
+    }
+
+    @Test
+    public void test_Ordinal_AcceptableRanges() throws Exception
+    {
+        IColumn _col = new SQLiteColumn();
+
+        for( int i = 0; i < 3000; i++ )
+        {
+            //at least zero to 3000 should work though
+            // most are probably limited.
+            _col.setOrdinal(i);  
+            assertEquals(i, _col.getOrdinal());
+        }
     }
 
 }

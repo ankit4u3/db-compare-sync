@@ -8,12 +8,20 @@
 // A copy of the license should be with these files. If not, you
 // can retrieve a copy from http://www.gnu.org/licenses/gpl.txt
 // 
-package core.comparers;
+
+package SQLite.comparers;
+
+import core.comparers.ITableComparer;
 
 /**
  *
  * @author FrankV
  */
-public interface IDBComparer {
+public class TableComparer implements ITableComparer
+{
 
+    public void CompareTable(Object table1, Object table2) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
 }
