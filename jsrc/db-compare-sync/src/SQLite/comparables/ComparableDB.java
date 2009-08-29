@@ -19,6 +19,7 @@ import core.Comparables.*;
 import core.IColumn;
 import java.sql.*;
 import java.util.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -107,6 +108,12 @@ public class ComparableDB implements IComparableDB
         return _list;
     }
 
+    public ArrayList<IComparableView> getViews()
+    {
+        ArrayList<IComparableView> _viewList = new ArrayList<IComparableView>();
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     public ArrayList<IComparableFunction> getFunctions()
     {
         throw new UnsupportedOperationException("SQLite does not Support.");
@@ -115,11 +122,6 @@ public class ComparableDB implements IComparableDB
     public ArrayList<IComparableStoredProcedure> getStoredProcedures()
     {
         throw new UnsupportedOperationException("SQLite does not Support.");
-    }
-
-    public ArrayList<IComparableView> getViews()
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public String getSql()

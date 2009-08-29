@@ -87,5 +87,18 @@ public class ComparableDBUnitTest
     {
         ArrayList<IComparableFunction> funcList = _db.getFunctions();
     }
-    
+
+    @Test(expected=UnsupportedOperationException.class)
+    public void test_basic_getStoredProcedures()
+    {
+        ArrayList<IComparableStoredProcedure> SPList = _db.getStoredProcedures();
+    }
+
+    @Test
+    public void test_basic_getViews()
+    {
+        ArrayList<IComparableView> _views = _db.getViews();
+
+        assertEquals(0, _views.size());
+    }
 }
