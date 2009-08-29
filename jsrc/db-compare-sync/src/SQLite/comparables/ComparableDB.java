@@ -53,8 +53,6 @@ public class ComparableDB implements IComparableDB
      */
     public ArrayList<IComparableTable> getTables()
     {
-
-
         //
         // Query for a list of tables, populate a new ArrayList.
         ArrayList<IComparableTable> _list = new ArrayList<IComparableTable>();
@@ -64,7 +62,7 @@ public class ComparableDB implements IComparableDB
 
             while( _tables.next() )
             {
-                IComparableTable _table = new ComparableTable();
+                IComparableTable _table = this.getNewTable();
                 String _tableName = _tables.getString("name");
                 _table.setTableName( _tableName );
 
@@ -80,7 +78,7 @@ public class ComparableDB implements IComparableDB
                 
                 while( _columns.next() )
                 {
-                    IColumn _col = new SQLiteColumn();
+                    IColumn _col = _table.getNewColumn();
 
                     _col.setColumnName(_columns.getString("name"));
                     _col.setDataType(_columns.getString("type"));
@@ -176,5 +174,26 @@ public class ComparableDB implements IComparableDB
         //_pstmt.addBatch();
 
         return _pstmt.executeQuery();
+    }
+
+
+    public IComparableTable getNewTable()
+    {
+        return new SQLite.comparables.ComparableTable();
+    }
+
+    public IComparableView getNewView()
+    {
+        return new SQLite.comparables.ComparableView();
+    }
+
+    public IComparableFunction getNewFunction()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public IComparableStoredProcedure getNewStoredProcedure()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

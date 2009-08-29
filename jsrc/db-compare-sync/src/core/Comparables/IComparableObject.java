@@ -19,7 +19,7 @@ import java.util.UUID;
  * objects.
  * @author FrankV
  */
-public interface IComparableObject
+public abstract interface IComparableObject
 {
     
     /**

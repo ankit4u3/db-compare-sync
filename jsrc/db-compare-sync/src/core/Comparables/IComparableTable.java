@@ -28,4 +28,10 @@ public interface IComparableTable extends IComparableObject
     String getTableName();
     void setTableName( String psTableName );
 
+    /**
+     * Factory pattern to get a new column
+     * compatable with the implementation.
+     * @return a new column; no properties set.
+     */
+    IColumn getNewColumn();
 }

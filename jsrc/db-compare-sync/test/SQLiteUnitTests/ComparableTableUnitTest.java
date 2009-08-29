@@ -104,4 +104,18 @@ public class ComparableTableUnitTest
          assertNull(_table.getFieldList());
      }
 
+
+     @Test
+     public void test_basic_getNewColumn()
+     {
+         IComparableTable _tab = new ComparableTable();
+         IColumn _col = _tab.getNewColumn();
+
+         assertNotNull( _tab ); //Good Measure
+         assertNotNull( _col );
+         
+         assertEquals("", _col.getColumnName() );
+         assertEquals("", _col.getDataType() );
+
+     }
 }
