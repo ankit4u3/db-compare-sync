@@ -9,7 +9,7 @@
 // can retrieve a copy from http://www.gnu.org/licenses/gpl.txt
 // 
 
-package SQLite.comparables;
+package SQLite.comparers;
 
 import core.comparers.ITableComparer;
 
