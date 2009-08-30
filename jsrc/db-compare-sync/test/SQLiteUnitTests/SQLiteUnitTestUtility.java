@@ -12,6 +12,8 @@
 package SQLiteUnitTests;
 
 
+import basics.*;
+
 import java.io.File;
 import java.sql.*;
 import java.util.*;
@@ -20,12 +22,12 @@ import java.util.*;
  *
  * @author FrankV
  */
-public final class SQLiteUnitTestUtility
+public class SQLiteUnitTestUtility implements UnitTestUtility
 {
 
     //
     // Fields (private, for test usage)
-    //protected Connection _conn;
+    protected Connection _conn;
     protected String _DBPath;
 
 
@@ -33,30 +35,38 @@ public final class SQLiteUnitTestUtility
     {
     }
 
-    public final Connection createTestSQLiteDatabase() throws ClassNotFoundException, SQLException
+    public Connection createTestSQLiteDatabase() throws Throwable
     {
+        //To generate a random File Name.
+        Random _rand = new Random();
+        _rand.setSeed(Calendar.getInstance().getTimeInMillis());
+        
         Class.forName("org.sqlite.JDBC");
         StringBuilder _sb = new StringBuilder();
         _sb.append("jdbc:sqlite:");
         _sb.append(this.getTestClassPath());
-        _sb.append("UnitTesting.sqlite");
+        _sb.append("UnitTesting");
+        _sb.append(_rand.nextLong());  //Appended to be unique.
+        _sb.append(".sqlite");
         
         _DBPath = _sb.toString().replaceAll("jdbc:sqlite:", "");
+        
+        _conn = DriverManager.getConnection(_sb.toString());
 
-        return DriverManager.getConnection(_sb.toString());
+        return _conn;
     }
 
-    private final String getTestClassPath()
+    protected String getTestClassPath()
     {
         return SQLiteDBCompareTest.class.getProtectionDomain().getCodeSource().getLocation().getPath();
     }
-    private final String getFullDBPath()
+    protected String getFullDBPath()
     {
         return this._DBPath;
     }
 
 
-    public final void populateTestDBWithData(Connection pConn) throws SQLException
+    public void populateTestDBWithData(Connection pConn) throws SQLException
     {
         Statement stat = pConn.createStatement();
         //stat.executeUpdate("drop table if exists people;");
@@ -79,7 +89,7 @@ public final class SQLiteUnitTestUtility
         pConn.setAutoCommit(true);
     }
 
-    public final boolean verifyPopulatedTestData(Connection pConn) throws SQLException
+    public boolean verifyPopulatedTestData(Connection pConn) throws SQLException
     {
         boolean _retValue = false;
         
@@ -122,4 +132,25 @@ public final class SQLiteUnitTestUtility
         if( !_myDbFile.delete() )
             throw new Exception( "File not deleted!");
     }
+
+// <editor-fold defaultstate="collapsed" desc="UnitTestUtility methods">
+    public Connection createCompleteDBForTests() throws Throwable
+    {
+        this.createTestSQLiteDatabase();
+        this.populateTestDBWithData(this._conn);
+        this.verifyPopulatedTestData(this._conn);
+
+        return this._conn;
+    }
+
+    public void deleteTestDB() throws Throwable
+    {
+        this.DeleteDatabase(_conn);
+    }
+    
+    public Connection getConnection() throws Throwable
+    {
+        return this._conn;
+    }// </editor-fold>
+
 }
