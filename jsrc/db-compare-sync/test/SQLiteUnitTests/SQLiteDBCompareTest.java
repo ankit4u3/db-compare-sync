@@ -59,7 +59,7 @@ public class SQLiteDBCompareTest
     }
 
     @Before
-    public void setUp() throws SQLException, ClassNotFoundException, ExceptionInInitializerError
+    public void setUp() throws Throwable
     {
         //
         // Create a basic database;
