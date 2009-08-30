@@ -53,7 +53,7 @@ public class ComparableDBUnitTest
     }
 
     @Before
-    public void setUp() throws SQLException, ClassNotFoundException
+    public void setUp() throws Throwable
     {
         _conn = _testUtility.createTestSQLiteDatabase();
         _testUtility.populateTestDBWithData( _conn );
