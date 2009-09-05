@@ -22,3 +22,5 @@ build
 .QueryCache
 
 *.class
+
+DiagramBackup
