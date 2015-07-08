@@ -1,0 +1,5 @@
+#.hgignore file for 'wiki'
+
+# use glob syntax.
+syntax: glob
+*.DS_Store

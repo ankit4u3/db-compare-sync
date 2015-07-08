@@ -1,0 +1,4 @@
+# Implementation #
+The goal of this project is to be **cross platform compatible**.  The exact programming language for the project has not yet been finalized, however there is a strong push for Mono/CLR. Java has also been considered but my lack of experience with Java is keeping me away from it. Furthermore, C++ with QT or GTK has also been considered however this project really doesn't require a language like C++.
+
+Currently, there is a project file setup with .NET/Mono **and** a project file setup as Java (Netbeans). **I'm experimenting with Java to find if I can deal with learning it as we go.** (_so far so good_)
